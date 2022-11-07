@@ -32,6 +32,7 @@ if st.button("제출"):
             inflobj.close()
 
             st.code(output)
+            a = st.caption("-------------------------\n총" + str(output.count("\n")) + "명이 설문조사에 참여했습니다")
         else:
             st.caption("중복되는 데이터가 있습니다")
             st.code(data)
@@ -42,4 +43,4 @@ if st.button("제출"):
 else:
     st.code(data)
 
-#st.caption("-------------------------\n설문지를 제출하면 이곳에 명단이 표시됩니다")
+    st.caption("-------------------------\n총" + str(data.count("\n")) + "명이 설문조사에 참여했습니다")
