@@ -45,6 +45,16 @@ def chart(data):
         amount, index=op)
     st.bar_chart(chart_data)
 
+def chartb(data):
+    c = list("IENSTFJP")
+    amount = []
+    for i in range(8):
+        amount.append(data.count(c[i]))
+
+    chartb_data = pd.DataFrame(
+        amount, index=c)
+    st.bar_chart(chartb_data)
+
 if st.button("제출"):
     if 20600 < num < 20627 and len(box) == 3:
         mbti = radfirst + radsecond + radthird + radfourth
@@ -63,14 +73,17 @@ if st.button("제출"):
             st.code(output)
             a = st.caption("-------------------------\n총" + str(output.count("\n")) + "명이 설문조사에 참여했습니다")
             chart(output)
+            chartb(output)
         else:
             st.caption("중복되는 데이터가 있습니다")
             st.code(data)
             chart(data)
+            chartb(data)
     else:
         st.caption("학번이나 이름이 잘못 입력되었습니다")
         st.code(data)
         chart(data)
+        chartb(data)
 
 else:
     st.code(data)
@@ -78,5 +91,6 @@ else:
     st.caption("-------------------------\n총" + str(data.count("\n")) + "명이 설문조사에 참여했습니다")
 
     chart(data)
+    chartb(data)
 
 st.caption("Made by 민경현")
