@@ -9,7 +9,7 @@ inflobj.close()
 st.title("2-6 MBTI 설문조사")
 num = st.number_input("학번을 입력해주세요", min_value=20601, max_value=20626)
 
-box = st.text_input(label="이름을 입력해주세요")
+box = st.text_input(label="이름(3글자)을 입력해주세요")
 
 radfirst = st.radio("MBTI 첫번째 자리", ('I', 'E'))
 radsecond = st.radio("MBTI 두번째 자리", ('N', 'S'))
@@ -34,7 +34,12 @@ if st.button("제출"):
             st.code(output)
         else:
             st.caption("중복되는 데이터가 있습니다")
+            st.code(data)
     else:
         st.caption("학번이나 이름이 잘못 입력되었습니다")
+        st.code(data)
 
-st.caption("-------------------------\n설문지를 제출하면 이곳에 명단이 표시됩니다")
+else:
+    st.code(data)
+
+#st.caption("-------------------------\n설문지를 제출하면 이곳에 명단이 표시됩니다")
