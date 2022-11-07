@@ -19,12 +19,12 @@ radfourth = st.radio("MBTI 네번째 자리", ('J', 'P'))
 if st.button("제출"):
     if 20600 < num < 20627 and len(box) == 3:
         mbti = radfirst + radsecond + radthird + radfourth
-        wri = str(num) + " " + str(box) + " : " + mbti + " - " + str(time.time())
+        wri = str(num) + " " + str(box) + " : " + mbti + " - "
         if wri not in data:
             inflobj = open('file.txt', 'a', encoding='utf-8')
 
 
-            inflobj.write('\n' + wri)
+            inflobj.write('\n' + wri + str(time.time()))
             inflobj.close()
 
             inflobj = open('file.txt', 'r', encoding='utf-8')
